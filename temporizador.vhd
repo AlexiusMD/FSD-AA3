@@ -18,10 +18,10 @@ architecture a1 of temporizador is
     signal en1, en2, en3, en4: std_logic;
 begin
 
-   en1 <= ...;
-   en2 <= ...;
-   en3 <= ...;
-   en4 <= ...;
+   en1 <= '1' when (en = '1' and not(segL = x"0" and segH = x"0" and minL = x"0" and minH = x"0")) else '0';
+   en2 <= '1' when (en1 = '1') else '0';
+   en3 <= '1' when (en2 = '1') else '0';
+   en4 <= '1' when (en3 = '1') else '0';
 
    sL : entity work.dec_counter port map ( 
         clock       => clock,
