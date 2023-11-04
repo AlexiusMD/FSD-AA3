@@ -23,10 +23,42 @@ begin
    en3 <= ...;
    en4 <= ...;
 
-   sL : entity work.dec_counter port map ( ... );
-   sH : entity work.dec_counter port map ( ... );
-   mL : entity work.dec_counter port map ( ... );
-   mH : entity work.dec_counter port map ( ... );
+   sL : entity work.dec_counter port map ( 
+        clock       => clock,
+        reset       => reset,
+        load        => load,
+        en          => en1,
+        first_value => x"0", 
+        limit       => x"9",
+        cont        => segL
+    );
+   sH : entity work.dec_counter port map ( 
+        clock       => clock,
+        reset       => reset,
+        load        => load,
+        en          => en2,
+        first_value => x"0", 
+        limit       => x"5",
+        cont        => segH
+    );
+   mL : entity work.dec_counter port map ( 
+        clock       => clock,
+        reset       => reset,
+        load        => load,
+        en          => en3,
+        first_value => x"0", 
+        limit       => x"9",
+        cont        => minL
+   );
+   mH : entity work.dec_counter port map ( 
+        clock       => clock,
+        reset       => reset,
+        load        => load,
+        en          => en4,
+        first_value => x"0", 
+        limit       => x"9",
+        cont        => minH
+    );
    
    cont <= minH & minL & segH & segL;
 end a1;
