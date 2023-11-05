@@ -46,7 +46,7 @@ begin
         reset       => reset,
         load        => load,
         en          => en3,
-        first_value => x"0", 
+        first_value => init_time(3 downto 0), 
         limit       => x"9",
         cont        => minL
    );
@@ -55,12 +55,10 @@ begin
         reset       => reset,
         load        => load,
         en          => en4,
-        first_value => x"0", 
+        first_value => init_time(7 downto 4), 
         limit       => x"9",
         cont        => minH
     );
    
    cont <= minH & minL & segH & segL;
 end a1;
-
-

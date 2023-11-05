@@ -3,7 +3,6 @@
 -- Authors: Alexius Maliuk Dias e Felipe Cruz Valiati
 --------------------------------------------------------------------------------
 library IEEE;
-library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 library work;
@@ -21,13 +20,13 @@ architecture relogio_xadrez of relogio_xadrez is
     -- DECLARACAO DOS ESTADOS
     type states is (IDLE, j1Play, j2Play);
     signal EA, PE : states; --EA = Estado Atual // PE = Próximo Estado
-    signal enj1, enj2   :   std_logic;
+    signal enj1, enj2   :   std_logic   :=      '0';
     
 begin
 
     -- INSTANCIACAO DOS CONTADORES
     contador1 : entity work.temporizador port map ( 
-        clock       => clock,
+        clock       =>  clock,
         reset       =>  reset,
         load        =>  load,
         en          =>  enj1,
@@ -40,23 +39,56 @@ begin
         load        =>  load,
         en          =>  enj2,
         init_time   =>  init_time,
-        cont        =>  contj1
+        cont        =>  contj2
     );
     -- PROCESSO DE TROCA DE ESTADOS
     process (clock, reset)
         begin
-            
-            
+            if reset = '1' then
+                EA  <=  IDLE;
+            end if;
 
+            if clock'event and clock = '1' then
+                EA  <=  PE;
+            end if;
         end process;
 
     -- PROCESSO PARA DEFINIR O PROXIMO ESTADO
-    process ( ) --<<< Nao esqueca de adicionar os sinais da lista de sensitividade
+    process(load, j1, j2) --<<< Nao esqueca de adicionar os sinais da lista de sensitividade
         begin
             case EA is
-                
-                --COMPLETAR O CASE PARA CADA UM DOS ESTADOS DA SUA MAQUINA
-
+                when IDLE =>
+                    if load = '1' then
+                        PE   <=  j1Play;
+                        enj1 <= '1';
+                        enj2 <= '0';
+                    else
+                        PE   <= IDLE;
+                        enj1 <= '0';
+                        enj2 <= '0';
+                    end if;
+                when j1Play =>
+                    if j1 = '1' then
+                        PE   <=  j2Play;
+                        enj2 <= '1';
+                        enj1 <= '0';
+                    else
+                        PE  <=  j1Play;
+                        enj2 <= '0';
+                        enj1 <= '1';
+                    end if;
+                when j2Play =>
+                    if j2 = '1' then
+                        PE  <=  j1Play;
+                        enj2 <= '0';
+                        enj1 <= '1';
+                    else
+                        PE  <=  j2Play;
+                        enj2 <= '1';
+                        enj1 <= '0';
+                    end if;
+                when others =>
+                        PE  <= IDLE;
             end case;
         end process;
 
