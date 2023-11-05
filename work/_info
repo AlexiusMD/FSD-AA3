@@ -23,9 +23,9 @@ VXj3jag?FTn<ggMS<T@NVb0
 !s100 Z;XM:oFO=_lKU:P9`UiXP1
 Z8 OV;C;10.5b;63
 32
-Z9 !s110 1699136864
+Z9 !s110 1699137988
 !i10b 1
-Z10 !s108 1699136864.000000
+Z10 !s108 1699137988.000000
 Z11 !s90 -reportprogress|300|-work|work|dec_counter.vhd|
 Z12 !s107 dec_counter.vhd|
 !i113 1
@@ -48,6 +48,29 @@ R9
 R10
 R11
 R12
+!i113 1
+R13
+R14
+Erelogio_xadrez
+w1699137961
+R2
+R3
+R4
+R5
+R0
+8relogio_xadrez.vhd
+Frelogio_xadrez.vhd
+l0
+L11
+V=SiaF<;KfHA?RoKhPMMOK1
+!s100 5H88H61GS=YfNTfXdmf7`1
+R8
+32
+R9
+!i10b 1
+R10
+!s90 -reportprogress|300|-work|work|relogio_xadrez.vhd|
+!s107 relogio_xadrez.vhd|
 !i113 1
 R13
 R14
