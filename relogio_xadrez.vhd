@@ -11,7 +11,7 @@ entity relogio_xadrez is
     port( 
         j1, j2, clock, load, reset  :   in  std_logic;
         init_time                   :   in  std_logic_vector(7 downto 0);
-        contj1, contj2              :   out std_logic_vector(15 downto 0);
+        contj1, contj2              :   inout std_logic_vector(15 downto 0);
         winj1, winj2                :   out std_logic
     );
 end relogio_xadrez;
@@ -21,6 +21,7 @@ architecture relogio_xadrez of relogio_xadrez is
     type states is (IDLE, j1Play, j2Play);
     signal EA, PE : states; --EA = Estado Atual // PE = Próximo Estado
     signal enj1, enj2   :   std_logic   :=      '0';
+    signal tickj1, tickj2   :   std_logic_vector(15 downto 0);
     
 begin
 
@@ -50,18 +51,24 @@ begin
 
             if clock'event and clock = '1' then
                 EA  <=  PE;
+                tickj1 <= contj1;
+                tickj2 <= contj2;
             end if;
         end process;
 
     -- PROCESSO PARA DEFINIR O PROXIMO ESTADO
-    process(load, j1, j2) --<<< Nao esqueca de adicionar os sinais da lista de sensitividade
+    process(j1, j2) --<<< Nao esqueca de adicionar os sinais da lista de sensitividade
         begin
             case EA is
-                when IDLE =>
-                    if load = '1' then
-                        PE   <=  j1Play;
+                when IDLE =>  
+                    if j1 = '1' then
+                        PE   <= j1Play;
                         enj1 <= '1';
                         enj2 <= '0';
+                    elsif j2 = '1' then
+                        PE   <= j2Play;
+                        enj1 <= '0';
+                        enj2 <= '1';
                     else
                         PE   <= IDLE;
                         enj1 <= '0';
@@ -92,10 +99,37 @@ begin
             end case;
         end process;
 
+    process(contj1, contj2)
+    begin
+        tickj1 <= contj1;
+        tickj2 <= contj2;
+    end process;
     
     -- ATRIBUICAO COMBINACIONAL DOS SINAIS INTERNOS E SAIDAS - Dica: faca uma maquina de Moore, desta forma os sinais dependem apenas do estado atual!!
-    
+    process(EA, contj1, contj2)
+    begin
+        winj1   <=  '0';
+        winj2   <=  '0';
 
+        case EA is
+            when IDLE =>
+                winj1   <=  '0';
+                winj2   <=  '0';
+            when j1Play =>
+                if contj1 = x"0000" then
+                    winj2 <= '1';
+                    winj1 <= '0';
+                end if;
+            when j2Play =>
+                if contj2 = x"0000" then
+                    winj2 <= '0';
+                    winj1 <= '1';
+                end if;
+            when others =>
+                winj1   <=  '0';
+                winj2   <=  '0';
+        end case;
+    end process;
 end relogio_xadrez;
 
 

@@ -23,9 +23,9 @@ VXj3jag?FTn<ggMS<T@NVb0
 !s100 Z;XM:oFO=_lKU:P9`UiXP1
 Z8 OV;C;10.5b;63
 32
-Z9 !s110 1699197375
+Z9 !s110 1699221309
 !i10b 1
-Z10 !s108 1699197375.000000
+Z10 !s108 1699221309.000000
 Z11 !s90 -reportprogress|300|-work|work|dec_counter.vhd|
 Z12 !s107 dec_counter.vhd|
 !i113 1
@@ -52,7 +52,7 @@ R12
 R13
 R14
 Erelogio_xadrez
-Z16 w1699195098
+Z16 w1699221307
 R2
 R3
 R4
@@ -62,64 +62,64 @@ Z17 8relogio_xadrez.vhd
 Z18 Frelogio_xadrez.vhd
 l0
 L10
-Vz_:_L4CeXZH]KoRJ=B24P0
-!s100 TCQ99EZYOoR7>YZ`<@;M]2
+VbnbbHK45M1TD45^h@7_o]1
+!s100 1Q^aTQ`WjSb^5]J@YAzDh2
 R8
 32
-Z19 !s110 1699197376
+R9
 !i10b 1
-Z20 !s108 1699197376.000000
-Z21 !s90 -reportprogress|300|-work|work|relogio_xadrez.vhd|
-Z22 !s107 relogio_xadrez.vhd|
+R10
+Z19 !s90 -reportprogress|300|-work|work|relogio_xadrez.vhd|
+Z20 !s107 relogio_xadrez.vhd|
 !i113 1
 R13
 R14
 Arelogio_xadrez
-Z23 DEx4 work 12 temporizador 0 22 C1^TTR@?T9J^EZUlCMEIn3
+Z21 DEx4 work 12 temporizador 0 22 C1^TTR@?T9J^EZUlCMEIn3
 R2
 R3
 R4
 R5
-Z24 DEx4 work 14 relogio_xadrez 0 22 z_:_L4CeXZH]KoRJ=B24P0
-l25
+Z22 DEx4 work 14 relogio_xadrez 0 22 bnbbHK45M1TD45^h@7_o]1
+l26
 L19
-V>8To[zRe8c14UN@kV2IHR0
-!s100 [c_DNjF78[:ofzFmU<JiC1
+VNo8WLZHQQ0]8f23e]P@k00
+!s100 Sd37ef4Zi=]G[PQXA<d3Y3
 R8
 32
-R19
+R9
 !i10b 1
+R10
+R19
 R20
-R21
-R22
 !i113 1
 R13
 R14
 Etb
-Z25 w1699194243
+Z23 w1699194243
 R4
 R5
 R0
-Z26 8tb.vhd
-Z27 Ftb.vhd
+Z24 8tb.vhd
+Z25 Ftb.vhd
 l0
 L8
 Vb2LRd]ZQUK=bOblDCj<UO3
 !s100 6B0?>PJSLBVdT9C^]@aPk3
 R8
 32
-R19
+R9
 !i10b 1
-R20
-Z28 !s90 -reportprogress|300|-work|work|tb.vhd|
-Z29 !s107 tb.vhd|
+R10
+Z26 !s90 -reportprogress|300|-work|work|tb.vhd|
+Z27 !s107 tb.vhd|
 !i113 1
 R13
 R14
 Aarch
 R2
 R3
-R24
+R22
 R4
 R5
 DEx4 work 2 tb 0 22 b2LRd]ZQUK=bOblDCj<UO3
@@ -129,21 +129,21 @@ VDJ1oHhAhUOZ>1H[nQ[NS20
 !s100 <<4D6^Ik8RhSOYC^>><3f2
 R8
 32
-R19
+R9
 !i10b 1
-R20
-R28
-R29
+R10
+R26
+R27
 !i113 1
 R13
 R14
 Etemporizador
-Z30 w1699197353
+Z28 w1699197542
 R4
 R5
 R0
-Z31 8temporizador.vhd
-Z32 Ftemporizador.vhd
+Z29 8temporizador.vhd
+Z30 Ftemporizador.vhd
 l0
 L9
 VC1^TTR@?T9J^EZUlCMEIn3
@@ -153,8 +153,8 @@ R8
 R9
 !i10b 1
 R10
-Z33 !s90 -reportprogress|300|-work|work|temporizador.vhd|
-Z34 !s107 temporizador.vhd|
+Z31 !s90 -reportprogress|300|-work|work|temporizador.vhd|
+Z32 !s107 temporizador.vhd|
 !i113 1
 R13
 R14
@@ -164,7 +164,7 @@ R3
 R15
 R4
 R5
-R23
+R21
 l19
 L16
 V0lX_gzfLlG[=ndRdC@]0N2
@@ -174,8 +174,8 @@ R8
 R9
 !i10b 1
 R10
-R33
-R34
+R31
+R32
 !i113 1
 R13
 R14
