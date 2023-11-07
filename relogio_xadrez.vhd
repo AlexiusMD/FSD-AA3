@@ -11,7 +11,7 @@ entity relogio_xadrez is
     port( 
         j1, j2, clock, load, reset  :   in  std_logic;
         init_time                   :   in  std_logic_vector(7 downto 0);
-        contj1, contj2              :   inout std_logic_vector(15 downto 0);
+        contj1, contj2              :   out std_logic_vector(15 downto 0);
         winj1, winj2                :   out std_logic
     );
 end relogio_xadrez;
@@ -32,7 +32,7 @@ begin
         load        =>  load,
         en          =>  enj1,
         init_time   =>  init_time,
-        cont        =>  contj1
+        cont        =>  tickj1
     );
     contador2 : entity work.temporizador port map ( 
         clock       =>  clock,
@@ -40,24 +40,25 @@ begin
         load        =>  load,
         en          =>  enj2,
         init_time   =>  init_time,
-        cont        =>  contj2
+        cont        =>  tickj2
     );
     -- PROCESSO DE TROCA DE ESTADOS
     process (clock, reset)
         begin
             if reset = '1' then
-                EA  <=  IDLE;
+                EA  <=  IDLE;sim:/tb/j2
+
             end if;
 
             if clock'event and clock = '1' then
                 EA  <=  PE;
-                tickj1 <= contj1;
-                tickj2 <= contj2;
+                contj1 <= tickj1;
+                contj2 <= tickj2;
             end if;
         end process;
 
     -- PROCESSO PARA DEFINIR O PROXIMO ESTADO
-    process(j1, j2) --<<< Nao esqueca de adicionar os sinais da lista de sensitividade
+    process(EA,j1, j2) --<<< Nao esqueca de adicionar os sinais da lista de sensitividade
         begin
             case EA is
                 when IDLE =>  
@@ -99,14 +100,8 @@ begin
             end case;
         end process;
 
-    process(contj1, contj2)
-    begin
-        tickj1 <= contj1;
-        tickj2 <= contj2;
-    end process;
-    
     -- ATRIBUICAO COMBINACIONAL DOS SINAIS INTERNOS E SAIDAS - Dica: faca uma maquina de Moore, desta forma os sinais dependem apenas do estado atual!!
-    process(EA, contj1, contj2)
+    process(EA, tickj1, tickj2)
     begin
         winj1   <=  '0';
         winj2   <=  '0';
@@ -116,12 +111,12 @@ begin
                 winj1   <=  '0';
                 winj2   <=  '0';
             when j1Play =>
-                if contj1 = x"0000" then
+                if tickj1 = x"0000" then
                     winj2 <= '1';
                     winj1 <= '0';
                 end if;
             when j2Play =>
-                if contj2 = x"0000" then
+                if tickj2 = x"0000" then
                     winj2 <= '0';
                     winj1 <= '1';
                 end if;
@@ -131,5 +126,3 @@ begin
         end case;
     end process;
 end relogio_xadrez;
-
-
