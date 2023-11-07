@@ -46,8 +46,7 @@ begin
     process (clock, reset)
         begin
             if reset = '1' then
-                EA  <=  IDLE;sim:/tb/j2
-
+                EA  <=  IDLE;
             end if;
 
             if clock'event and clock = '1' then
