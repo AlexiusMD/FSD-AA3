@@ -7,6 +7,8 @@ R0
 R0
 R0
 R0
+R0
+R0
 !s11e vcom 2021.3 2021.07, Jul 13 2021
 13
 !s112 1.1
@@ -16,16 +18,15 @@ R0
 cModel Technology
 Z1 d/home/felipe.valiati/FSD/FSD-AA3
 T_opt
-!s110 1699363688
-VYL?4S]dlzlTlz]Oa8iZ:I3
+!s110 1699366049
+VIZU@GJl6HhOM1C4`L2>cd1
 04 2 4 work tb arch 1
-=1-000ae431a4f1-654a3b68-9cf26-143e
+=1-000ae431a4f1-654a44a1-97ef0-1a1f
 !s124 OEM100
 o-quiet -auto_acc_if_foreign -work work +acc=lprn
 tCvgOpt 0
 n@_opt
 OL;O;2021.3;73
-R1
 Edec_counter
 Z2 w1699362635
 Z3 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
@@ -42,9 +43,9 @@ VXj3jag?FTn<ggMS<T@NVb0
 !s100 Z;XM:oFO=_lKU:P9`UiXP1
 Z10 OL;C;2021.3;73
 32
-Z11 !s110 1699364011
+Z11 !s110 1699366048
 !i10b 1
-Z12 !s108 1699364011.000000
+Z12 !s108 1699366048.000000
 Z13 !s90 -reportprogress|300|-work|work|dec_counter.vhd|
 Z14 !s107 dec_counter.vhd|
 !i113 0
@@ -118,13 +119,13 @@ R22
 R15
 R16
 Etb
-R2
+Z25 w1699366035
 R5
 R6
 !i122 3
 R1
-Z25 8tb.vhd
-Z26 Ftb.vhd
+Z26 8tb.vhd
+Z27 Ftb.vhd
 l0
 L8 1
 Vb2LRd]ZQUK=bOblDCj<UO3
@@ -134,8 +135,8 @@ R10
 R11
 !i10b 1
 R12
-Z27 !s90 -reportprogress|300|-work|work|tb.vhd|
-!s107 tb.vhd|
+Z28 !s90 -reportprogress|300|-work|work|tb.vhd|
+Z29 !s107 tb.vhd|
 !i113 0
 R15
 R16
@@ -147,17 +148,17 @@ R5
 R6
 DEx4 work 2 tb 0 22 b2LRd]ZQUK=bOblDCj<UO3
 !i122 3
-l42
-L11 74
-VDJ1oHhAhUOZ>1H[nQ[NS20
-!s100 <<4D6^Ik8RhSOYC^>><3f2
+l46
+L11 78
+Vg[03eDc0HZ=VANa=UobI93
+!s100 og`b;1dJo@Ae5S1bP@NT=2
 R10
 32
 R11
 !i10b 1
 R12
-R27
-Z28 !s107 tb.vhd|
+R28
+R29
 !i113 0
 R15
 R16
@@ -167,8 +168,8 @@ R5
 R6
 !i122 1
 R1
-Z29 8temporizador.vhd
-Z30 Ftemporizador.vhd
+Z30 8temporizador.vhd
+Z31 Ftemporizador.vhd
 l0
 L9 1
 VC1^TTR@?T9J^EZUlCMEIn3
@@ -178,8 +179,8 @@ R10
 R11
 !i10b 1
 R12
-Z31 !s90 -reportprogress|300|-work|work|temporizador.vhd|
-Z32 !s107 temporizador.vhd|
+Z32 !s90 -reportprogress|300|-work|work|temporizador.vhd|
+Z33 !s107 temporizador.vhd|
 !i113 0
 R15
 R16
@@ -200,8 +201,8 @@ R10
 R11
 !i10b 1
 R12
-R31
 R32
+R33
 !i113 0
 R15
 R16
